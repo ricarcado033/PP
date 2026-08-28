@@ -51,7 +51,7 @@ if (sobreInteractivo) {
         }
     });
 }
-const misFotos = ['imagenes/img1.jpeg', 'imagenes/img2.jpeg', 'imagenes/img3.jpeg', 'imagenes/img4.jpeg', 'imagenes/img5.jpeg', 'imagenes/img6.jpeg', 'imagenes/img7.jpg','imagenes/img8.jpeg'];
+const misFotos = ['imagenes/img1.jpeg', 'imagenes/img2.jpeg', 'imagenes/img3.jpeg', 'imagenes/img4.jpeg', 'imagenes/img5.jpeg', 'imagenes/img6.jpeg', 'imagenes/img7.JPG','imagenes/img8.jpeg'];
 let contadorFotos = 0; // Esto nos ayudará a intercalar las fotos
 
 // Reemplaza tu función actual por esta:
