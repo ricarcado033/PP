@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una sorpresa para ti</title>
+    <!-- Conectamos nuestro archivo de diseño -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PANTALLA 1: La contraseña -->
+    <div id="pantalla-bloqueo" class="contenedor">
+        <h2>La Contaseña es una fecha especial...</h2>
+        <!-- inputmode="numeric" hace que en el celular se abra el teclado numérico -->
+        <input type="password" id="input-password" inputmode="numeric" placeholder="******" maxlength="4">
+        <button id="btn-ingresar">Abrir</button>
+        <p id="mensaje-error" class="oculto">Código incorrecto, intenta de nuevo.</p>
+        <p id="link-pista" class="oculto">¿Necesitas una pista?</p>
+    </div>
+
+    <!-- PANTALLA 2: El sobre (Estará oculto al principio) -->
+    <div id="pantalla-sobre" class="contenedor oculto">
+        <div class="sobre" id="sobre-interactivo">
+            <div class="solapaArriba"></div>
+            <div class="solapaDerecha"></div>
+            <div class="solapaIzquierda"></div>
+            <div class="solapaAbajo"></div>
+            <div class="carta">
+                <h3> 🎉</h3>
+                <p>Aquí puedes escribir tu mensaje especial. Este es un detalle hecho con mucho cariño.</p>
+            </div>
+            <div class="frente"></div>
+        </div>
+        <p class="instruccion">Toca el sobre para abrirlo</p>
+    </div>
+
+    <!-- Conectamos nuestro archivo de lógica -->
+    <script src="script.js"></script>
+</body>

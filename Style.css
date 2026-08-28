@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fce4ec; /* Color de fondo de la página (rosado muy claro) */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.contenedor {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #d81b60; /* Color del texto del título */
+}
+
+input {
+    padding: 10px;
+    font-size: 24px;
+    letter-spacing: 5px;
+    width: 120px;
+    text-align: center;
+    border: 2px solid #f8bbd0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #d81b60; /* Color del botón */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #c2185b; /* Color del botón al pasar el mouse */
+}
+
+.oculto {
+    display: none !important; /* Esta clase es clave para esconder pantallas */
+}
+
+#mensaje-error {
+    color: #d32f2f;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Estilos temporales para la pantalla 2 */
+.sobre-wrapper {
+    padding: 20px;
+}
+/* --- DISEÑO DEL SOBRE --- */
+.sobre {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f8bbd0;
+    margin: 40px auto;
+    cursor: pointer;
+}
+
+
+
+.solapaArriba{
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-right: 151px solid transparent;
+    border-left: 151px solid transparent;
+    border-top: 100px solid #ec407a;
+    z-index: 2; /* Por encima de todo al estar cerrado */
+    transform-origin: top;
+    transition: transform 1s ease-in-out;
+}
+.solapaAbajo{
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-right: 151px solid transparent;
+    border-left: 151px solid transparent;
+    border-bottom: 100px solid #ec407a;
+    z-index: 4; /* Por encima de todo al estar cerrado */
+    transform-origin: bottom;
+    transition: transform 1s ease-in-out;
+}
+
+.solapaDerecha {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-right: 150px solid #f48fb1;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    z-index: 4; /* Por encima de todo al estar cerrado */
+    transform-origin: right;
+    transition: transform 1s   ease-in-out;
+}
+.solapaIzquierda {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    border-left: 150px solid #f48fb1;
+    z-index: 4; /* Por encima de todo al estar cerrado */
+    transform-origin: left;
+    transition: transform 1s   ease-in-out;
+}
+
+.carta {
+    position: absolute;
+    background: white;
+    width: 280px;
+    height: 180px;
+    top: 10px;
+    left: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1; /* Escondida detrás del frente */
+    transition: transform 0.6s ease-in-out;
+}
+
+.carta h3 {
+    color: #d81b60;
+    margin-bottom: 10px;
+}
+
+.carta p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* --- ANIMACIONES AL ABRIR --- */
+.sobre.abierto .solapaArriba{
+    transform: rotateX(180deg);
+    z-index: 2; /* Se va hacia atrás para dejar salir la carta */
+}
+.sobre.abierto .solapaAbajo  {
+    transform: rotateX(180deg);
+    z-index: 2; /* Se va hacia atrás para dejar salir la carta */
+}
+.sobre.abierto .solapaDerecha  {
+    transform: rotateY(180deg);
+    z-index: 2; /* Se va hacia atrás para dejar salir la carta */
+}
+.sobre.abierto .solapaIzquierda  {
+    transform: rotateY(180deg);
+    z-index: 2; /* Se va hacia atrás para dejar salir la carta */
+}
+
+.sobre.abierto .carta {
+    
+    z-index: 1; /* Sube y se pone por encima del frente */
+}
+
+.instruccion {
+    font-size: 14px;
+    color: #888;
+    margin-top: 20px;
+}
+#link-pista {
+    color: #1976d2; /* Un tono azul clásico de los enlaces */
+    font-size: 14px;
+    margin-top: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#link-pista:hover {
+    color: #115293; /* Se oscurece un poco al pasar el mouse */
+}
+/* Estilo base para los corazones que van a salir del sobre */
+.corazon-foto {
+    position: absolute;
+    bottom: 50px; 
+    width: 75px; /* Tamaño de las fotos que flotarán */
+    height: 65px;
+    object-fit: cover; /* Evita que la foto se deforme o aplaste */
+    z-index: 5; 
+    animation: flotar 2s ease-in forwards;
+    pointer-events: none !important;
+    
+    /* Esta máscara SVG recorta tu foto cuadrada en forma de corazón */
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>');
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+/* La animación que los hace subir y desvanecerse */
+@keyframes flotar {
+    0% {
+        transform: translateY(0) scale(0.5) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-250px) scale(1.5) rotate(25deg); /* Suben y crecen */
+        opacity: 0; /* Desaparecen suavemente */
+    }
+}
