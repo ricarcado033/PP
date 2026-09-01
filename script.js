@@ -1,8 +1,5 @@
-// ==========================================
-// 1. CONFIGURACIÓN GENERAL
-// ==========================================
 const CONFIG = {
-    contrasenaReal: "020924",
+    contrasenaReal: "020933",
     fechaInicio: new Date('2024-09-02T21:20:00'),
     mensajePista: "POSIIII, No te acuerdas de nuestra fecha especial 😭😭02/09/2033  Idola, Maquina, Fiera, Crack",
     fotos: [
@@ -11,23 +8,15 @@ const CONFIG = {
         'imagenes/img7.JPG',  'imagenes/img8.jpeg'
     ],
     cantidadFotosLluvia: 250,
-    velocidadMaquina: 50, // ms por letra
-    mensajeSecreto: "Un dia como hoy hace 2 años, algo cambio en nuestras vidas, los dos empezamos esta aventura juntos, los dos decidimos arriesgarnos a algo que no sabiamos como resultaria, empezamos con miedo, con insertidumbre y hoy luego de 2 años podemos darnos cuenta que lo bonito que es eso por lo que nos arriesgamos ese dia, tenemos dias buenos, dias malos pero siemrpe hay algo que domina en nosotros dos y eso es el amor y la decision de amarnos, sin importar que siempre encontramos la forma de demostrarnos nuestro amor, aunque sea un poquito siempre nos lo demostramos y nunca dejamos en duda nuestra desicion de amarnos, de acompañarnos, de cuidarnos y sobre todo de respetarnos. Te amo mucho mi Catito y nunca quiero que dudes de eso, se que no soy el novio perfecto y no estoy ni cerca de serlo pero creeme que todos los dias me esfuerzo para enamorarte mas y mas. Te amo mucho mi princesita hermosa. \nCon muchisimo amor: Titatito"
+    velocidadMaquina: 50,
+    mensaje: "Un dia como hoy hace 2 años, algo cambio en nuestras vidas, los dos empezamos esta aventura juntos, los dos decidimos arriesgarnos a algo que no sabiamos como resultaria, empezamos con miedo, con insertidumbre y hoy luego de 2 años podemos darnos cuenta que lo bonito que es eso por lo que nos arriesgamos ese dia, tenemos dias buenos, dias malos pero siemrpe hay algo que domina en nosotros dos y eso es el amor y la decision de amarnos, sin importar que siempre encontramos la forma de demostrarnos nuestro amor, aunque sea un poquito siempre nos lo demostramos y nunca dejamos en duda nuestra desicion de amarnos, de acompañarnos, de cuidarnos y sobre todo de respetarnos. Te amo mucho mi Catito y nunca quiero que dudes de eso, se que no soy el novio perfecto y no estoy ni cerca de serlo pero creeme que todos los dias me esfuerzo para enamorarte mas y mas. Te amo mucho mi princesita hermosa. \nCon muchisimo amor: Titatito"
 };
-
-// ==========================================
-// 2. ESTADO GLOBAL DE LA APLICACIÓN
-// ==========================================
 const ESTADO = {
     pistaVista: false,
     solapasAbiertas: 0,
     contadorFotos: 0,
     mensajeEscrito: false
 };
-
-// ==========================================
-// 3. REFERENCIAS AL DOM
-// ==========================================
 const DOM = {
     inputPassword: document.getElementById('input-password'),
     btnIngresar: document.getElementById('btn-ingresar'),
@@ -46,8 +35,7 @@ const DOM = {
     elementoTexto: document.getElementById('texto-maquina'),
     elReloj: document.getElementById('reloj'),
     solapas: document.querySelectorAll('.solapaArriba, .solapaAbajo, .solapaDerecha, .solapaIzquierda'),
-    
-    // Audios
+    // audios
     sfx: {
         tecla: document.getElementById('sfx-tecla'),
         error: document.getElementById('sfx-error'),
@@ -56,9 +44,6 @@ const DOM = {
     }
 };
 
-// ==========================================
-// 4. FUNCIONES DE UTILIDAD
-// ==========================================
 const reproducirSonido = (sonido) => {
     if (sonido) {
         sonido.currentTime = 0;
@@ -66,9 +51,7 @@ const reproducirSonido = (sonido) => {
     }
 };
 
-// ==========================================
-// 5. LÓGICA DE AUTENTICACIÓN
-// ==========================================
+//validar contraseña
 DOM.btnIngresar?.addEventListener('click', () => {
     const valorIngresado = DOM.inputPassword?.value;
 
@@ -90,9 +73,7 @@ DOM.linkPista?.addEventListener('click', () => {
 
 DOM.inputPassword?.addEventListener('input', () => reproducirSonido(DOM.sfx.tecla));
 
-// ==========================================
-// 6. ANIMACIÓN DE LAS SOLAPAS Y SORPRESA
-// ==========================================
+//abirr solapas
 DOM.solapas.forEach(solapa => {
     solapa.addEventListener('click', (evento) => {
         evento.stopPropagation(); 
@@ -118,15 +99,13 @@ function iniciarSorpresa() {
     setTimeout(() => {
         DOM.carta?.classList.add('revelada'); 
         DOM.contadorAmor?.classList.add('subir'); 
-    }, 1005); 
+    }, 1010); 
     
     // Iniciar máquina de escribir
-    setTimeout(efectoEscribir, 1015);
+    setTimeout(efectoEscribir, 1100);
 }
 
-// ==========================================
-// 7. EFECTOS VISUALES (FOTOS Y ESCRITURA)
-// ==========================================
+
 function animarLluviaFotos() {
     for (let i = 0; i < CONFIG.cantidadFotosLluvia; i++) {
         setTimeout(() => {
@@ -135,7 +114,6 @@ function animarLluviaFotos() {
         }, i * 400); 
     }
 }
-
 function crearCorazonFijo(lado) {
     if (!DOM.sobreInteractivo) return;
     
@@ -151,6 +129,7 @@ function crearCorazonFijo(lado) {
     setTimeout(() => corazon.remove(), 2000);
 }
 
+
 function efectoEscribir() {
     if (ESTADO.mensajeEscrito || !DOM.elementoTexto) return; 
     ESTADO.mensajeEscrito = true;
@@ -159,8 +138,8 @@ function efectoEscribir() {
     DOM.elementoTexto.innerHTML = ''; 
     
     const intervalo = setInterval(() => {
-        if (i < CONFIG.mensajeSecreto.length) {
-            DOM.elementoTexto.innerHTML += CONFIG.mensajeSecreto.charAt(i);
+        if (i < CONFIG.mensaje.length) {
+            DOM.elementoTexto.innerHTML += CONFIG.mensaje.charAt(i);
             i++;
         } else {
             clearInterval(intervalo);
@@ -168,9 +147,7 @@ function efectoEscribir() {
     }, CONFIG.velocidadMaquina);
 }
 
-// ==========================================
-// 8. RELOJ CONTADOR
-// ==========================================
+
 function actualizarContador() {
     if (!DOM.elReloj) return;
     
@@ -185,9 +162,7 @@ function actualizarContador() {
 }
 setInterval(actualizarContador, 1000);
 
-// ==========================================
-// 9. LÓGICA DE LA TERMINAL DE CARGA
-// ==========================================
+
 function iniciarTerminal() {
     if (!DOM.pantallaTerminal) return;
     
@@ -217,7 +192,6 @@ function iniciarTerminal() {
         { texto: ".............................", retardo: 8400 },
         { texto: ".............................", retardo: 8500 },
         { texto: ".............................", retardo: 8600 },
-        { texto: ".............................", retardo: 8700 },
         { texto: ".............................", retardo: 8700 }
     ];
 
@@ -226,22 +200,18 @@ function iniciarTerminal() {
             if (!DOM.terminalLog) return;
             const linea = document.createElement('div');
             linea.className = 'log-line';
-            
-            // Reemplazo visual de tags
             let contenido = log.texto;
             if (contenido.includes('[OK]')) contenido = contenido.replace('[OK]', '<span class="log-ok">[OK]</span>');
             if (contenido.includes('[SUCCESS]')) contenido = contenido.replace('[SUCCESS]', '<span class="log-success">[SUCCESS]</span>');
-            
             linea.innerHTML = contenido;
             DOM.terminalLog.appendChild(linea);
             DOM.terminalLog.scrollTop = DOM.terminalLog.scrollHeight;
         }, log.retardo);
     });
 
-    // Transición final hacia la sorpresa
     setTimeout(() => {
         DOM.pantallaTerminal?.classList.add('oculto');
         DOM.pantallaSobre?.classList.remove('oculto');
         DOM.pantallaSobre?.classList.add('entrada-animada');
-    }, 10900);
+    }, 10000);
 }

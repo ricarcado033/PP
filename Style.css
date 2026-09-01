@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #fce4ec; /* Color de fondo de la página (rosado muy claro) */
+    background-color: #fce4ec; 
     color: #333;
     display: flex;
     justify-content: center;
@@ -26,7 +26,7 @@ body {
 
 h2 {
     margin-bottom: 20px;
-    color: #d81b60; /* Color del texto del título */
+    color: #d81b60; 
 }
 
 input {
@@ -44,7 +44,7 @@ input {
 button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #d81b60; /* Color del botón */
+    background-color: #d81b60; 
     color: white;
     border: none;
     border-radius: 8px;
@@ -55,11 +55,11 @@ button {
 }
 
 button:hover {
-    background-color: #c2185b; /* Color del botón al pasar el mouse */
+    background-color: #c2185b; 
 }
 
 .oculto {
-    display: none !important; /* Esta clase es clave para esconder pantallas */
+    display: none !important; 
 }
 
 #mensaje-error {
@@ -69,11 +69,9 @@ button:hover {
     font-weight: bold;
 }
 
-/* Estilos temporales para la pantalla 2 */
 .sobre-wrapper {
     padding: 20px;
 }
-/* --- DISEÑO DEL SOBRE --- */
 .sobre {
     position: relative;
     width: 300px;
@@ -83,8 +81,6 @@ button:hover {
     cursor: pointer;
 }
 
-
-
 .solapaArriba{
     position: absolute;
     top: 0;
@@ -93,7 +89,7 @@ button:hover {
     border-right: 151px solid transparent;
     border-left: 151px solid transparent;
     border-top: 100px solid #ec407a;
-    z-index: 2; /* Por encima de todo al estar cerrado */
+    z-index: 4;
     transform-origin: top;
     transition: transform 1s ease-in-out;
 }
@@ -105,11 +101,10 @@ button:hover {
     border-right: 151px solid transparent;
     border-left: 151px solid transparent;
     border-bottom: 100px solid #ec407a;
-    z-index: 4; /* Por encima de todo al estar cerrado */
+    z-index: 4; 
     transform-origin: bottom;
     transition: transform 1s ease-in-out;
 }
-
 .solapaDerecha {
     position: absolute;
     top: 0;
@@ -119,7 +114,7 @@ button:hover {
     border-right: 150px solid #f48fb1;
     border-top: 100px solid transparent;
     border-bottom: 100px solid transparent;
-    z-index: 4; /* Por encima de todo al estar cerrado */
+    z-index: 4; 
     transform-origin: right;
     transition: transform 1s   ease-in-out;
 }
@@ -132,7 +127,7 @@ button:hover {
     border-top: 100px solid transparent;
     border-bottom: 100px solid transparent;
     border-left: 150px solid #f48fb1;
-    z-index: 4; /* Por encima de todo al estar cerrado */
+    z-index: 4; 
     transform-origin: left;
     transition: transform 1s   ease-in-out;
 }
@@ -146,26 +141,25 @@ button:hover {
     left: 10px;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 1; /* Escondida detrás del frente */
+    z-index: 1; 
     transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .carta.revelada {
     z-index: 5;
-    height: 558px; /* Hacemos la carta mucho más alta para que quepa todo tu texto */
-    top: -120px; /* La deslizamos hacia arriba para que parezca que sale del sobre */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Sombra más fuerte para que flote sobre las solapas */
+    height: 585px; 
+    top: -120px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
 }
 .carta h3 {
     color: #d81b60;
     margin-bottom: 10px;
 }
-
 .carta p {
     font-size: 14px;
     color: #555;
 }
 
-/* --- ANIMACIONES AL ABRIR --- */
+
 .solapaArriba.abierta {
     transform: rotateX(180deg);
     z-index: 4; 
@@ -183,11 +177,8 @@ button:hover {
     z-index: 4;
 }
 
-
-
-.sobre.abierto .carta {
-    
-    z-index: 4; /* Sube y se pone por encima del frente */
+.sobre.abierto .carta {  
+    z-index: 6;
 }
 
 .instruccion {
@@ -195,30 +186,31 @@ button:hover {
     color: #888;
     margin-top: 20px;
 }
+
 #link-pista {
-    color: #1976d2; /* Un tono azul clásico de los enlaces */
+    color: #1976d2; 
     font-size: 14px;
     margin-top: 15px;
     text-decoration: underline;
     cursor: pointer;
     font-weight: 500;
 }
-
 #link-pista:hover {
-    color: #115293; /* Se oscurece un poco al pasar el mouse */
+    color: #115293; 
 }
-/* Estilo base para los corazones que van a salir del sobre */
+
+
 .corazon-foto {
     position: absolute;
     bottom: 50px; 
-    width: 75px; /* Tamaño de las fotos que flotarán */
+    width: 75px; 
     height: 65px;
-    object-fit: cover; /* Evita que la foto se deforme o aplaste */
+    object-fit: cover; 
     z-index: 5; 
     animation: flotar 2s ease-in forwards;
     pointer-events: none !important;
     
-    /* Esta máscara SVG recorta tu foto cuadrada en forma de corazón */
+    /* El gran Gpt, corta las imagenes */
     -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>');
     -webkit-mask-size: contain;
     -webkit-mask-repeat: no-repeat;
@@ -229,58 +221,54 @@ button:hover {
     mask-position: center;
 }
 
-/* La animación que los hace subir y desvanecerse */
 @keyframes flotar {
     0% {
         transform: translateY(0) scale(0.5) rotate(0deg);
         opacity: 1;
     }
     100% {
-        transform: translateY(-250px) scale(1.5) rotate(25deg); /* Suben y crecen */
-        opacity: 0; /* Desaparecen suavemente */
+        transform: translateY(-250px) scale(1.5) rotate(25deg); 
+        opacity: 0; /
     }
 }
-/* --- ANIMACIÓN DE ENTRADA DE LA CARTA --- */
+
+/* Entrada carta*/
 .entrada-animada {
-    /* Usamos cubic-bezier para que frene suavemente al llegar al centro */
-    animation: llegarVolando 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: llegarVolando 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes llegarVolando {
     0% {
         opacity: 0;
-        /* Empieza fuera de la pantalla por abajo, pequeña y rotada */
         transform: translateY(100vh) scale(0.3) rotate(25deg);
     }
     70% {
         opacity: 1;
-        /* Se pasa un poquito hacia arriba para dar un efecto de rebote natural */
-        transform: translateY(-15px) scale(1.02) rotate(-3deg);
+        transform: translateY(-20px) scale(1.02) rotate(-3deg);
     }
     100% {
         opacity: 1;
-        /* Aterriza en su posición original perfecta */
         transform: translateY(0) scale(1) rotate(0deg);
     }
 }
-/* --- EFECTO MÁQUINA DE ESCRIBIR --- */
+
+
 #texto-maquina {
-    min-height: 80px; /* Mantiene el espacio para que la carta no brinque al escribir */
+    min-height: 80px; 
     font-size: 14px;
     color: #555;
 }
-
-/* Agrega el cursor al final del texto */
 #texto-maquina::after {
     content: '|';
     color: #d81b60;
     animation: parpadeo 0.8s infinite;
 }
-
 @keyframes parpadeo {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+
 .contador-box {
     background: rgba(255, 255, 255, 0.95);
     padding: 10px 15px;
@@ -290,21 +278,14 @@ button:hover {
     font-size: 14px;
     color: #d81b60;
     font-weight: bold;
-    
-    /* Lo preparamos para moverse y le damos prioridad visual */
     position: relative;
     z-index: 10;
-    /* Misma velocidad y fluidez que tiene tu carta (1 segundo) */
     transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
-/* Esta es la clase que le agregaremos con JavaScript para que suba */
 .contador-box.subir {
-    /* Sube 140 pixeles hacia arriba, alejándose de la carta */
     transform: translateY(-140px); 
 }
 
-/* --- ESTILOS DE LA TERMINAL DE ARRANQUE --- */
 .contenedor-terminal {
     background-color: #0d1117;
     color: #00ff66;
@@ -317,7 +298,6 @@ button:hover {
     text-align: left;
     padding: 0;
 }
-
 .terminal-header {
     background-color: #161b22;
     padding: 10px 14px;
@@ -325,7 +305,6 @@ button:hover {
     align-items: center;
     border-bottom: 1px solid #30363d;
 }
-
 .dot {
     height: 10px;
     width: 10px;
@@ -337,72 +316,54 @@ button:hover {
 .yellow { background-color: #ffbd2e; }
 .green { background-color: #27c93f; }
 
-.terminal-title {
-    color: #8b949e;
-    font-size: 12px;
-    margin-left: auto;
-    font-weight: bold;
-}
-
 .terminal-body {
     padding: 20px;
     font-size: 13px;
     line-height: 1.6;
-    height: 120px; /* Altura fija. Así solo caben unas 3 o 4 líneas a la vez */
+    height: 120px;
     overflow-y: hidden;
 }
-
 .log-line {
     margin-bottom: 8px;
     opacity: 0;
     animation: aparecerLinea 1s forwards;
 }
-
 .log-ok {
     color: #58a6ff;
     font-weight: bold;
 }
-
 .log-success {
     color: #7ee787;
     font-weight: bold;
 }
-
 @keyframes aparecerLinea {
     to { opacity: 1; }
 }
-
-/* --- NUEVOS ESTILOS PARA LA BARRA DE CARGA --- */
-.wrapper-terminal {
+.terminal {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
-
 .contenedor-terminal {
-    margin-bottom: 25px; /* Separa el cuadro negro de la barra de carga */
+    margin-bottom: 25px;
 }
-
 .barra-carga-fondo {
     width: 90%;
     max-width: 420px;
     height: 18px;
-    background-color: #f8bbd0; /* Un rosado suave de fondo */
+    background-color: #f8bbd0; 
     border-radius: 10px;
     overflow: hidden;
     box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
 }
-
 .barra-carga-relleno {
     height: 100%;
-    width: 0%; /* Empieza vacía */
-    background-color: #d81b60; /* El color principal que usas en los botones */
+    width: 0%;
+    background-color: #d81b60; 
     border-radius: 10px;
-    /* La animación se controla por JS pero esto la hace suave */
     transition: width 0.1s linear; 
 }
-
 .porcentaje-carga {
     margin-top: 10px;
     color: #d81b60;

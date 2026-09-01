@@ -4,43 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Una sorpresa para ti</title>
-    <!-- Conectamos nuestro archivo de diseño -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
-    <!-- PANTALLA 1: La contraseña -->
+    <!--Pantalla bloqueo-->
     <div id="pantalla-bloqueo" class="contenedor">
         <h2>Para la contaseña piensa en una fecha especial </h2>
-        <!-- inputmode="numeric" hace que en el celular se abra el teclado numérico -->
         <input type="password" id="input-password" inputmode="numeric" placeholder="******" maxlength="6">
         <button id="btn-ingresar">Abrir</button>
         <p id="mensaje-error" class="oculto">Incorrecto, intenta de nuevo.</p>
         <p id="link-pista" class="oculto">¿Necesitas una pista?</p>
     </div>
  
-    <!-- PANTALLA INTERMEDIA: Terminal de arranque -->
-<div id="pantalla-terminal" class="wrapper-terminal oculto">
-    <!-- El cuadro negro de comandos -->
+    <!--Pantalla terminal-->
+<div id="pantalla-terminal" class="terminal oculto">
     <div class="contenedor-terminal">
         <div class="terminal-header">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
-            <span class="terminal-title">system_boot.sh</span>
         </div>
         <div id="terminal-log" class="terminal-body"></div>
     </div>
-    
-    <!-- NUEVO: Barra de carga -->
     <div class="barra-carga-fondo">
         <div id="barra-progreso" class="barra-carga-relleno"></div>
     </div>
     <p id="porcentaje-carga" class="porcentaje-carga">0%</p>
 </div>
-    <!-- PANTALLA 2: El sobre (Estará oculto al principio) -->
+
+    <!--Pantalla sobre-->
     <div id="pantalla-sobre" class="contenedor oculto">
         <div id="contador-amor" class="contador-box">
         <p>🤭Juntitos por:</p>
@@ -65,6 +60,5 @@
     <audio id="sfx-error" src="imagenes/error.mp3"></audio>
     <audio id="sfx-carga" src="imagenes/cargando.mp3"></audio>
     <audio id="sfx-solapa" src="imagenes/papel.mp3"></audio>
-    <!-- Conectamos nuestro archivo de lógica -->
     <script src="script.js"></script>
 </body>
