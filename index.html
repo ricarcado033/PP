@@ -13,30 +13,58 @@
 
     <!-- PANTALLA 1: La contraseña -->
     <div id="pantalla-bloqueo" class="contenedor">
-        <h2>La Contaseña es una fecha especial...</h2>
+        <h2>Para la contaseña piensa en una fecha especial </h2>
         <!-- inputmode="numeric" hace que en el celular se abra el teclado numérico -->
-        <input type="password" id="input-password" inputmode="numeric" placeholder="******" maxlength="4">
+        <input type="password" id="input-password" inputmode="numeric" placeholder="******" maxlength="6">
         <button id="btn-ingresar">Abrir</button>
-        <p id="mensaje-error" class="oculto">Código incorrecto, intenta de nuevo.</p>
+        <p id="mensaje-error" class="oculto">Incorrecto, intenta de nuevo.</p>
         <p id="link-pista" class="oculto">¿Necesitas una pista?</p>
     </div>
-
+ 
+    <!-- PANTALLA INTERMEDIA: Terminal de arranque -->
+<div id="pantalla-terminal" class="wrapper-terminal oculto">
+    <!-- El cuadro negro de comandos -->
+    <div class="contenedor-terminal">
+        <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">system_boot.sh</span>
+        </div>
+        <div id="terminal-log" class="terminal-body"></div>
+    </div>
+    
+    <!-- NUEVO: Barra de carga -->
+    <div class="barra-carga-fondo">
+        <div id="barra-progreso" class="barra-carga-relleno"></div>
+    </div>
+    <p id="porcentaje-carga" class="porcentaje-carga">0%</p>
+</div>
     <!-- PANTALLA 2: El sobre (Estará oculto al principio) -->
     <div id="pantalla-sobre" class="contenedor oculto">
+        <div id="contador-amor" class="contador-box">
+        <p>🤭Juntitos por:</p>
+        <div id="reloj">0 días, 0h 0m 0s</div>
+    </div>
+
         <div class="sobre" id="sobre-interactivo">
             <div class="solapaArriba"></div>
             <div class="solapaDerecha"></div>
             <div class="solapaIzquierda"></div>
             <div class="solapaAbajo"></div>
             <div class="carta">
-                <h3> 🎉</h3>
-                <p>Aquí puedes escribir tu mensaje especial. Este es un detalle hecho con mucho cariño.</p>
+                <h3> Un dia...</h3>
+                <p id="texto-maquina"></p>
             </div>
             <div class="frente"></div>
         </div>
-        <p class="instruccion">Toca el sobre para abrirlo</p>
+        <p class="instruccion">Toca para abrir la carta</p>
     </div>
-
+    <audio id="musicafondo" src="imagenes/ZOE - Labios Rotos (Unplugged).mp3"></audio>
+    <audio id="sfx-tecla" src="imagenes/tecla.mp3"></audio>
+    <audio id="sfx-error" src="imagenes/error.mp3"></audio>
+    <audio id="sfx-carga" src="imagenes/cargando.mp3"></audio>
+    <audio id="sfx-solapa" src="imagenes/papel.mp3"></audio>
     <!-- Conectamos nuestro archivo de lógica -->
     <script src="script.js"></script>
 </body>
