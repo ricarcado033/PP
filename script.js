@@ -99,7 +99,13 @@ solapas.forEach(solapa => {
             setTimeout(efectoEscribir, 1015);
         }
     });
+<<<<<<< HEAD
 });
+=======
+}
+const misFotos = ['imagenes/img1.jpeg', 'imagenes/img2.jpeg', 'imagenes/img3.jpeg', 'imagenes/img4.jpeg', 'imagenes/img5.jpeg', 'imagenes/img6.jpeg', 'imagenes/img7.JPG','imagenes/img8.jpeg'];
+let contadorFotos = 0; // Esto nos ayudará a intercalar las fotos
+>>>>>>> 44985d1a52074cb01aee1bf584656e55c1ce7646
 
 // 6. Tus fotos y generador de corazones
 const misFotos = ['imagenes/img1.jpeg', 'imagenes/img2.jpeg', 'imagenes/img3.jpeg', 'imagenes/img4.jpeg', 'imagenes/img5.jpeg', 'imagenes/img6.jpeg', 'imagenes/img7.JPG','imagenes/img8.jpeg'];
@@ -131,6 +137,7 @@ function crearCorazonFijo(lado) {
         corazon.remove(); 
     }, 2000);
 }
+<<<<<<< HEAD
 // --- LÓGICA DE LA MÁQUINA DE ESCRIBIR ---
 const elementoTexto = document.getElementById('texto-maquina');
 // ¡Escribe aquí el mensaje real que quieres que se teclee!
@@ -256,3 +263,5 @@ if (inputPassword) {
         }
     });
 }
+=======
+>>>>>>> 44985d1a52074cb01aee1bf584656e55c1ce7646
